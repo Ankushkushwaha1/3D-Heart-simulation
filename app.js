@@ -172,6 +172,31 @@ function initViewer() {
     merge_materials: 0,
   };
 
+  // Update loader
+  const fill = document.getElementById('loaderFill');
+  let progress = 0;
+  const loaderInterval = setInterval(() => {
+    progress = Math.min(progress + Math.random() * 20, 95);
+    if (fill) fill.style.width = progress + '%';
+  }, 200);
+
+  let isInitialized = false;
+  const safeInit = () => {
+    if (isInitialized) return;
+    isInitialized = true;
+    clearInterval(loaderInterval);
+    if (fill) fill.style.width = '100%';
+    const loader = document.getElementById('loading-screen');
+    if (loader) {
+      loader.style.opacity = '0';
+      setTimeout(() => { loader.style.display = 'none'; }, 400);
+    }
+    setupViewer();
+  };
+
+  // Safety fallback: guaranteed hide loader after 2.5s
+  setTimeout(safeInit, 2500);
+
   function tryInit(modelUid) {
     client.init(modelUid, {
       ...viewerOptions,
@@ -180,39 +205,15 @@ function initViewer() {
         api.start();
         api.addEventListener('viewerready', function() {
           console.log('Viewer ready!');
-          document.getElementById('loading-screen').style.opacity = '0';
-          setTimeout(() => {
-            document.getElementById('loading-screen').style.display = 'none';
-          }, 800);
-          setupViewer();
+          safeInit();
         });
       },
       error: function() {
         console.warn('Model ' + modelUid + ' failed, trying fallback...');
-        // Try first fallback
-        if (fallbackUids.length) {
-          tryInit(fallbackUids.shift());
-        } else {
-          document.getElementById('loaderText').textContent = 'Could not load model. Using procedural heart.';
-          loadProceduralFallback();
-        }
+        safeInit();
       }
     });
   }
-
-  // Update loader
-  const fill = document.getElementById('loaderFill');
-  let progress = 0;
-  const loaderInterval = setInterval(() => {
-    progress = Math.min(progress + Math.random() * 15, 90);
-    fill.style.width = progress + '%';
-  }, 300);
-
-  // Listen for actual load complete
-  setTimeout(() => {
-    clearInterval(loaderInterval);
-    fill.style.width = '100%';
-  }, 8000);
 
   tryInit(uid);
 }
