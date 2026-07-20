@@ -1,10 +1,11 @@
 # CardioSim 3D — Interactive Heart Anatomy Simulation
 
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Simulation-Online_Demo-success?style=for-the-badge&logo=google-chrome)](https://ankushkushwaha1.github.io/3D-Heart-simulation/)
 ![CardioSim 3D Logo](https://img.shields.io/badge/CardioSim-3D-red?style=for-the-badge&logo=heart)
 ![Version](https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge)
-![Tech](https://img.shields.io/badge/Built%20With-HTML%20%7C%20CSS%20%7C%20JS-orange?style=for-the-badge)
 
-**CardioSim 3D** is a premium, ultra-realistic interactive 3D human heart educational visualization. Designed for medical students, healthcare professionals, and biology enthusiasts, it provides a cinematic experience to explore the complex anatomy and physiology of the human heart.
+> 🫀 **Try the Live Online 3D Heart Simulation**:  
+> 👉 **[https://ankushkushwaha1.github.io/3D-Heart-simulation/](https://ankushkushwaha1.github.io/3D-Heart-simulation/)**
 
 ---
 
