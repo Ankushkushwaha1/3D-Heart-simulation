@@ -1,0 +1,18 @@
+{
+  "name": "heart-(1)",
+  "version": "1.0.0",
+  "description": "![CardioSim 3D Logo](https://img.shields.io/badge/CardioSim-3D-red?style=for-the-badge&logo=heart) ![Version](https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge) ![Tech](https://img.shields.io/badge/Built%20With-HTML%20%7C%20CSS%20%7C%20JS-orange?style=for-the-badge)",
+  "main": "app.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "vite": "^8.0.14"
+  }
+}
